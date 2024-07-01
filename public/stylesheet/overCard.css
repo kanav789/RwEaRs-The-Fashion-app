@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-top: 5vh;
+
+  display: flex;
+  justify-content: center;
+
+  gap: 40px;
+  .image {
+    width: auto;
+    border: 1px solid #dadce0;
+    padding: 30px 5px;
+    background-color: #fffefe;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px grey;
+    img {
+      max-height: 400px;
+      min-width: 300px;
+      width: 100%;
+    }
+  }
+
+  .information {
+    width: 400px;
+    padding: 12px;
+
+    background-color: #fffefe;
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px grey;
+    padding: 16vh;
+    color: #838383;
+    h2 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    #AddToCart {
+      margin: 17px 0;
+      background-color: #485967;
+      padding: 10px 15px;
+      border-radius: 5px;
+      color: #fff;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}
+/* hameburger */
+
+@media (max-width: 710px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+
+    padding: 30vh 0 0 0;
+
+    .image {
+      width: 300px;
+
+      margin: auto;
+      img {
+        min-width: 200px;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .information {
+      width: 300px;
+      margin: auto;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 340x) {
+  .image {
+    width: 200px;
+    margin: auto;
+    img {
+      min-width: 100px;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .information {
+    width: 200px;
+    margin: auto;
+    text-align: center;
+  }
+}

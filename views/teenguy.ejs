@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RwEaRs</title>
+    <link rel="stylesheet" href="/stylesheet/header.css" />
+    <link rel="stylesheet" href="/stylesheet/logout.css" />
+    <link rel="stylesheet" href="/stylesheet/card.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- header   -->
+      <div class="header">
+        <!-- logo -->
+        <div class="logo">
+          <!-- logo Images -->
+          <img src="/Images/headericon.png" alt="" />
+          <h2>RwEaRs</h2>
+        </div>
+        <!-- varitey_item -->
+
+        <div class="item" id="item">
+          <div class="variety-item" id="variety-item">
+            <li><a href="/mens">Men</a></li>
+            <li><a href="/women">Women</a></li>
+            <li>
+              <a href="/teenguy">TeenGuy</a>
+            </li>
+          </div>
+          <!-- Profile -->
+          <div class="profile">
+            <div class="cart">
+              <a href="/cart"> <img src="/Images/cart.png" alt="" /></a>
+            </div>
+            <div class="profile-icon">
+              <img src="/Images/profileicon.png" alt="" />
+              <span class="tooltiplogout"><a href="/logout">LogOut</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hameburger" id="hameburger">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>
+
+      <div class="CardRwears">
+        <% if (teenguy.length > 0) { %> <% teenguy.forEach(teenguy => { %>
+        <div class="card">
+          <img src="<%= teenguy.image %>" alt="Product Image" />
+          <h3><%= teenguy.title %></h3>
+          <button class="add-to-cart">
+            <a href="/overCard/<%= teenguy._id%>">Check Details</a>
+          </button>
+        </div>
+        <% }); %> <% } else { %>
+        <p>No posts found.</p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+  <script src="/Javascripts/hameburger.js"></script>
+</html>

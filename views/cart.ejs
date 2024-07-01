@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RwEaRs</title>
+    <link rel="stylesheet" href="/stylesheet/header.css" />
+    <link rel="stylesheet" href="/stylesheet/logout.css" />
+    <link rel="stylesheet" href="/stylesheet/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- header   -->
+      <div class="header">
+        <!-- logo -->
+        <div class="logo">
+          <!-- logo Images -->
+          <img src="/Images/headericon.png" alt="" />
+          <h2>RwEaRs</h2>
+        </div>
+        <!-- varitey_item -->
+
+        <div class="item" id="item">
+          <div class="variety-item" id="variety-item">
+            <li><a href="/mens">Men</a></li>
+            <li><a href="/women">Women</a></li>
+            <li>
+              <a href="/teenguy">TeenGuy</a>
+            </li>
+          </div>
+          <!-- Profile -->
+          <div class="profile">
+            <div class="cart">
+              <a href="/cart"> <img src="/Images/cart.png" alt="" /></a>
+            </div>
+            <div class="profile-icon">
+              <img src="/Images/profileicon.png" alt="" />
+              <span class="tooltiplogout"><a href="/logout">LogOut</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hameburger" id="hameburger">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+      </div>
+      <!-- bag -->
+
+      <h1>Your bag</h1>
+
+      <% if (rawcart.length > 0) { %> <% rawcart.forEach(cart => { %>
+      <div class="cartopen">
+        <form action="/cart/<%=cart.id%>" method="post">
+          <button class="delete" type="submit">
+            <i class="fa fa-trash"></i>
+          </button>
+        </form>
+
+        <div class="imgprice">
+          <div class="image">
+            <img src="<%= cart.image%>" alt="image" />
+          </div>
+          <div class="price">
+            <p>Price₹:<%=cart.price%></p>
+          </div>
+        </div>
+      </div>
+      <% }) %> <% } %>
+    </div>
+  </body>
+  <script src="/Javascripts/hameburger.js"></script>
+</html>

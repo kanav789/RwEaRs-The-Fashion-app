@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RwEaRs</title>
+    <link rel="stylesheet" href="/stylesheet/Admin/Admin.css" />
+    <link rel="stylesheet" href="/stylesheet/card.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Admin Name</h2>
+
+      <div class="Allpost">
+        <div class="header">
+          <h4>Your Posted Products</h4>
+          <button class="add-product-button">
+            <a href="/post">Add product</a>
+          </button>
+        </div>
+        <div class="posts">
+          <% if (post.length > 0) { %> <% post.forEach(post => { %>
+          <div class="card">
+            <img src="<%= post.image %>" alt="Product Image" />
+            <h3><%= post.title %></h3>
+            <button class="add-to-cart">
+              <a href="/overCard/<%= post._id%>">Check Details</a>
+            </button>
+          </div>
+          <% }); %> <% } else { %>
+          <p>No posts found.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
