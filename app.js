@@ -1,3 +1,15 @@
+require("dotenv").config();
+const mongoose = require("mongoose");
+
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("connected");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -211,4 +223,9 @@ function IsLoggedIn(req, res, next) {
 app.get("/header", (req, res) => {
   res.render("header");
 });
-app.listen(8080);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
+});
