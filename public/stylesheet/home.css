@@ -76,3 +76,12 @@
     }
   }
 }
+
+
+@media (min-width: 488px) and (min-height: 616px){
+  .welcome{
+    .home{
+      margin: 30vh 0 0 0;
+    }
+  }
+}
