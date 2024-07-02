@@ -57,3 +57,10 @@
 .card button:hover {
   background-color: #faf27d;
 }
+
+
+@media(max-width:386px){
+  .CardRwears{
+    margin: 12vh 40px 0 40px;
+  }
+}

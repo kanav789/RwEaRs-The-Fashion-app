@@ -81,8 +81,8 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #302f2f;
-    color: #cdcdcd;
+    background-color:#E6E6E6 ;
+    color: #302f2f;
 
     .logo {
       position: fixed;
@@ -105,7 +105,7 @@
     width: 20px;
     height: 3px;
 
-    background-color: #cdcdcd;
+    background-color: #020101;
     border-radius: 3px;
   }
 
@@ -113,7 +113,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #302f2f;
+    background-color: #E6E6E6;
     width: 100%;
     max-width: 200px;
     position: fixed;
@@ -130,7 +130,7 @@
       color: #cdcdcd;
       li {
         a {
-          color: #cdcdcd;
+          color: #000000;
         }
       }
     }
