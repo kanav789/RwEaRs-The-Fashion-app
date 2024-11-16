@@ -24,6 +24,7 @@ const userModel = require("./models/userModel");
 const postModel = require("./models/postModel");
 const { error } = require("console");
 const Register = require("./controller/Auth/Register");
+const Login = require("./controller/Auth/Login");
 app.use(cookieParser());
 
 app.set("view engine", "ejs");
@@ -72,7 +73,7 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.post("/create",Register )
+app.post("/create", Register);
 
 app.get("/logout", IsLoggedIn, async (req, res) => {
   res.cookie("token", "").redirect("/login");
@@ -81,19 +82,7 @@ app.get("/logout", IsLoggedIn, async (req, res) => {
 app.get("/login", async (req, res) => {
   res.render("login");
 });
-app.post("/login", async (req, res) => {
- 
-  let { email, password } = req.body;
-
-  let user = await userModel.findOne({ email });
-  if (!user) res.send("please register");
-  else {
-    let token = jwt.sign({ email: email, userid: user._id }, "shiv");
-    res.cookie("token", token);
-    res.send("Render ho jaa")
-    // res.redirect("/");
-  }
-});
+app.post("/login", Login);
 
 // admin section
 app.get("/post", IsLoggedIn, (req, res) => {
