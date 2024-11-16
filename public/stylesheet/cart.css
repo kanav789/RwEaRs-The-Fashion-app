@@ -1,58 +1,88 @@
-* {
-  padding: 0;
-  margin: 0%;
-  box-sizing: border-box;
+/* Cart section */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
-.container {
-  background-color: #e6e6e6;
-  width: 100%;
-  min-height: 100vh;
-  max-height: 100%;
-}
-h1 {
-  text-align: center;
 
-  font-size: 22px;
-  font-weight: 700;
-  font-style: normal;
-  display: block;
-  padding: 10vh 0 5vh 0;
+
+h1 {
+  margin: 30px 0 20px;
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
 }
 .cartopen {
-  border: 1px solid rgb(179, 179, 179);
-  box-shadow: 1px 1px 4px rgb(161, 153, 153);
-  width: 300px;
-  margin: auto;
-  height: 100px;
-  margin-bottom: 20px;
-
-  .imgprice {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.delete {
-  background: transparent;
-  outline: none;
+
+.cartopen:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cartopen .imgprice {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cartopen .image img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.cartopen .price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cartopen .price p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.cartopen .price p:first-child {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.cartopen form {
+  margin: 0;
+}
+
+.cartopen .delete {
+  background: #e74c3c;
+  color: white;
   border: none;
-  margin: 0 0 0 280px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  :hover {
-    outline: none;
-  }
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.image {
-  width: 120px;
-}
-.image img {
-  height: 60px;
-  object-fit: contain;
-  width: 100%;
-}
-
-@media (max-width: 700px) {
-  .container {
-    padding-top: 10vh;
-  }
+.cartopen .delete:hover {
+  background: #c0392b;
+  transform: scale(1.1);
 }
