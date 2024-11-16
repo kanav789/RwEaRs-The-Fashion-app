@@ -15,10 +15,15 @@ const app = express();
 const path = require("path");
 const jwt = require("jsonwebtoken");
 
+// Secret Key
+
+
+
 const cookieParser = require("cookie-parser");
 const userModel = require("./models/userModel");
 const postModel = require("./models/postModel");
 const { error } = require("console");
+const Register = require("./controller/Auth/Register");
 app.use(cookieParser());
 
 app.set("view engine", "ejs");
@@ -67,22 +72,7 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.post("/create", async (req, res) => {
-  let { name, email, password } = req.body;
-  let user = await userModel.findOne({ email });
-  if (user) {
-    res.status(500).send("This email is already registered");
-  } else {
-    let createUser = await userModel.create({
-      name,
-      email,
-      password,
-    });
-    let token = jwt.sign({ email: email, userid: createUser._id }, "shiv");
-    res.cookie("token", token);
-    res.redirect("/");
-  }
-});
+app.post("/create",Register )
 
 app.get("/logout", IsLoggedIn, async (req, res) => {
   res.cookie("token", "").redirect("/login");
@@ -92,6 +82,7 @@ app.get("/login", async (req, res) => {
   res.render("login");
 });
 app.post("/login", async (req, res) => {
+ 
   let { email, password } = req.body;
 
   let user = await userModel.findOne({ email });
@@ -99,7 +90,8 @@ app.post("/login", async (req, res) => {
   else {
     let token = jwt.sign({ email: email, userid: user._id }, "shiv");
     res.cookie("token", token);
-    res.redirect("/");
+    res.send("Render ho jaa")
+    // res.redirect("/");
   }
 });
 
