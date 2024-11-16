@@ -15,7 +15,6 @@ const app = express();
 const path = require("path");
 const jwt = require("jsonwebtoken");
 
-// Secret Key
 
 
 
@@ -25,6 +24,8 @@ const postModel = require("./models/postModel");
 const { error } = require("console");
 const Register = require("./controller/Auth/Register");
 const Login = require("./controller/Auth/Login");
+const IsLoggedIn = require("./middleware/IsLoggedIn");
+const ProductCreate = require("./controller/Admin/ProductCreate.js");
 app.use(cookieParser());
 
 app.set("view engine", "ejs");
@@ -89,18 +90,7 @@ app.get("/post", IsLoggedIn, (req, res) => {
   res.render("post");
 });
 
-app.post("/post", IsLoggedIn, async (req, res) => {
-  let { price, size, discount, image, title, type } = req.body;
-  let post = await postModel.create({
-    price,
-    size,
-    discount,
-    image,
-    title,
-    type,
-  });
-  res.redirect("/iamtheAdmin");
-});
+app.post("/post", IsLoggedIn, ProductCreate);
 
 app.get("/iamtheadmin", IsLoggedIn, async (req, res) => {
   let post = await postModel.find().exec();
@@ -182,23 +172,7 @@ app.post("/cart/:id", IsLoggedIn, async (req, res) => {
   }
 });
 
-// protected routers
-function IsLoggedIn(req, res, next) {
-  try {
-    const token = req.cookies.token;
-    if (!token) {
-      return res.status(401).redirect("/login");
-    }
-    const decoded = jwt.verify(token, "shiv");
-    if (!decoded) {
-      return res.status(401).redirect("/login");
-    }
-    req.user = decoded;
-    next();
-  } catch (error) {
-    return res.status(500).send(error.message);
-  }
-}
+
 
 // demo
 app.get("/header", (req, res) => {
