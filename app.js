@@ -26,6 +26,7 @@ const Register = require("./controller/Auth/Register");
 const Login = require("./controller/Auth/Login");
 const IsLoggedIn = require("./middleware/IsLoggedIn");
 const ProductCreate = require("./controller/Admin/ProductCreate.js");
+const Products = require("./controller/Admin/Products.js");
 app.use(cookieParser());
 
 app.set("view engine", "ejs");
@@ -92,14 +93,7 @@ app.get("/post", IsLoggedIn, (req, res) => {
 
 app.post("/post", IsLoggedIn, ProductCreate);
 
-app.get("/iamtheadmin", IsLoggedIn, async (req, res) => {
-  let post = await postModel.find().exec();
-  if (post) {
-    res.render("Admin", { post });
-  } else {
-    console.log(error);
-  }
-});
+app.get("/iamtheadmin", IsLoggedIn, Products);
 
 app.get("/overCard/:id", IsLoggedIn, async (req, res) => {
   try {

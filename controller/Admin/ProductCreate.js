@@ -21,8 +21,6 @@ const ProductCreate = async (req, res) => {
 
     // Redirect or respond
     res.redirect("/iamtheAdmin");
-    // or return JSON if frontend handles redirection
-    // res.status(201).json({ message: "Product created successfully", post });
   } catch (error) {
     console.error("Error creating product:", error);
     res.status(500).send("Internal Server Error at Product Creation");
