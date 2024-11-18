@@ -1,100 +1,69 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Product Section Styling */
 .section {
-  margin-top: 5vh;
-
   display: flex;
   justify-content: center;
-
-  gap: 40px;
-  .image {
-    width: auto;
-    border: 1px solid #dadce0;
-    padding: 30px 5px;
-    background-color: #fffefe;
-    border-radius: 3px;
-    box-shadow: 1px 1px 5px grey;
-    img {
-      max-height: 400px;
-      min-width: 300px;
-      width: 100%;
-    }
-  }
-
-  .information {
-    width: 400px;
-    padding: 12px;
-
-    background-color: #fffefe;
-    border-radius: 3px;
-    box-shadow: 1px 1px 5px grey;
-    padding: 16vh;
-    color: #838383;
-    h2 {
-      font-size: 20px;
-      margin: 10px 0;
-    }
-
-    #AddToCart {
-      margin: 17px 0;
-      background-color: #485967;
-      padding: 10px 15px;
-      border-radius: 5px;
-      color: #fff;
-
-      a {
-        text-decoration: none;
-        color: #fff;
-      }
-    }
-  }
+  padding: 40px 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+gap: 20px;
+  flex-wrap: wrap;
 }
-/* hameburger */
 
-@media (max-width: 710px) {
+/* Image Styling */
+.image {
+  flex: 1;
+  max-width: 500px;
+  margin-right: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Information Styling */
+.information{
+  font-family: "Geist Mono", monospace;
+}
+
+
+
+.button {
+  margin-top: 20px;
+}
+
+.button input {
+  background-color: #000;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.button input:hover {
+  background-color: #302e2e;
+}
+
+@media (max-width: 768px) {
   .section {
-    display: flex;
     flex-direction: column;
-
-    padding: 11vh 0 0 0;
-
-    .image {
-      width: 300px;
-
-      margin: auto;
-      img {
-        min-width: 200px;
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-
-    .information {
-      width: 300px;
-      margin: auto;
-      text-align: center;
-    }
+    text-align: center;
   }
-}
 
-@media (max-width: 340x) {
   .image {
-    width: 200px;
-    margin: auto;
-    img {
-      min-width: 100px;
-      width: 100%;
-      object-fit: contain;
-    }
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 
   .information {
-    width: 200px;
-    margin: auto;
-    text-align: center;
+    flex: 1;
   }
 }
