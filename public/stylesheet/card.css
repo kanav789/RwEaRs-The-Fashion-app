@@ -4,8 +4,9 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 20px;
-  margin: 0 auto;
+  padding-top: 16vh;
+
+  
 }
 
 /* Individual Card */
@@ -83,7 +84,7 @@ p {
   }
 
   .CardRwears {
-    padding: 10px;
+    padding-top: 17vh;
     justify-content: flex-start;
   }
 }
