@@ -3,108 +3,114 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .container {
   width: 100%;
   min-height: 100vh;
   max-height: 100%;
   background-color: #e6e6e6;
 }
+
 .header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  /* logo */
-  .logo {
-    display: flex;
-    align-items: center;
-    font-family: "Playwrite ES", cursive;
-    width: 60px;
-
-    img {
-      width: 100%;
-      position: relative;
-      top: -3px;
-      background: transparent;
-    }
-    h2 {
-      font-size: 22px;
-    }
-  }
-
-  /* item */
-  .item {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-  /* li-item */
-  .variety-item {
-    display: flex;
-    gap: 15px;
-    li {
-      font-family: "Playwrite ES", cursive;
-      font-size: 15px;
-      list-style: none;
-      a {
-        text-decoration: none;
-        color: black;
-      }
-    }
-  }
-
-  .profile {
-    display: flex;
-    gap: 15px;
-
-    .cart {
-      width: 30px;
-      img {
-        width: 100%;
-      }
-    }
-    .profile-icon {
-      width: 30px;
-      img {
-        width: 100%;
-      }
-    }
-  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #e6e6e6;
+  z-index: 1000;
+  box-shadow: 1px 1px 4px grey;
 }
 
-/* responsive */
+/* Logo */
+.header .logo {
+  display: flex;
+  align-items: center;
+  font-family: "Playwrite ES", cursive;
+  gap: 10px;
+}
 
+.header .logo img {
+  width: 60px;
+  position: relative;
+  top: -3px;
+  background: transparent;
+}
+
+.header .logo h2 {
+  font-size: 22px;
+}
+
+/* Navigation Items */
+.header .item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header .variety-item {
+  display: flex;
+  gap: 15px;
+}
+
+.header .variety-item li {
+  font-family: "Playwrite ES", cursive;
+  font-size: 15px;
+  list-style: none;
+}
+
+.header .variety-item li a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Profile Section */
+.header .profile {
+  display: flex;
+  gap: 15px;
+}
+
+.header .profile .cart,
+.header .profile .profile-icon {
+  width: 30px;
+}
+
+.header .profile .cart img,
+.header .profile .profile-icon img {
+  width: 100%;
+}
+
+/* Responsive Styles */
 @media (max-width: 700px) {
   .header {
     height: 14vh;
-    box-shadow: 1px 1px 4px grey;
     position: fixed;
-    top: 0;
     width: 100%;
-    background-color:#E6E6E6 ;
+    background-color: #e6e6e6;
     color: #302f2f;
-    
-    .logo {
-      position: fixed;
-      left: 0;
-    }
   }
+
+  .header .logo {
+    position: fixed;
+    left: 10px;
+  }
+
   .hameburger {
     position: fixed;
     right: 14px;
-    height: 20vh;
     display: flex;
     flex-direction: column;
     gap: 3px;
-    top: 5.9%;
-
+    top: 6%;
+    z-index: 1001;
   }
+
   .hameburger .one,
-  .two,
-  .three {
+  .hameburger .two,
+  .hameburger .three {
     width: 20px;
     height: 3px;
-
     background-color: #020101;
     border-radius: 3px;
   }
@@ -113,7 +119,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #E6E6E6;
+    background-color: #e6e6e6;
     width: 100%;
     max-width: 200px;
     position: fixed;
@@ -122,39 +128,36 @@
     padding: 10vh;
     text-align: center;
     box-shadow: 1px 1px 8px rgb(198, 196, 196);
-
-    #variety-item {
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-      color: #cdcdcd;
-      li {
-        a {
-          color: #000000;
-        }
-      }
-    }
-
-    .profile {
-      .cart {
-        a {
-          color: white;
-        }
-      }
-    }
+    transition: all 0.3s ease-in-out;
   }
 
-  .hameburger.active {
-    .one {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .two {
-      opacity: 0;
-    }
-    .three {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
+  .item #variety-item {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #cdcdcd;
   }
+
+  .item #variety-item li a {
+    color: #000000;
+  }
+
+  .item .profile .cart a {
+    color: white;
+  }
+
+  .hameburger.active .one {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hameburger.active .two {
+    opacity: 0;
+  }
+
+  .hameburger.active .three {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
   .item.active {
     right: 0;
   }
